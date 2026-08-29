@@ -1,7 +1,7 @@
 {
     'name': 'Tipo de Cambio BOB - Bolivia',
     'version': '16.0.1.0.0',
-    'summary': 'Actualiza USD, BOB y UFV desde el Banco Central de Bolivia vía api.factura.bo.',
+    'summary': 'Actualiza USD, BOB y UFV desde el Banco Central de Bolivia.',
     'author': 'Naval Alvarez',
     'category': 'Accounting/Localizations',
     'website': '',
