@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="view_picking_form_reverse_purchase_receipt"
+            model="ir.ui.view">
+        <field name="name">stock.picking.form.reverse.purchase.receipt</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+
+        <field name="arch" type="xml">
+
+            <xpath expr="//header" position="inside">
+
+                <!-- Sin class="oe_highlight" → estilo neutro como los demás -->
+                <button name="action_reverse_purchase_receipt"
+                        string="Revertir Recepción"
+                        type="object"
+                        groups="stock.group_stock_user"
+                        attrs="{'invisible': ['|', ('state', '!=', 'done'), ('picking_type_code', '!=', 'incoming')]}"/>
+
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

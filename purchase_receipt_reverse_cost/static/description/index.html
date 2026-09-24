@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Return at Original Cost</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 0 auto; padding: 20px; }
+        h1, h2 { color: #875A7B; }
+        .section { margin-bottom: 30px; }
+        .section img { max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; margin: 10px 0; }
+        .feature-list { list-style: none; padding: 0; }
+        .feature-list li { margin-bottom: 10px; padding-left: 24px; position: relative; }
+        .feature-list li:before { content: "✔"; color: #875A7B; font-weight: bold; position: absolute; left: 0; }
+        .note { background-color: #f9f9f9; border-left: 4px solid #875A7B; padding: 15px; margin: 20px 0; }
+
+        /* Botones de versión / edición */
+        .badges {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin: 10px 0 30px 0;
+        }
+        .badge {
+            display: inline-block;
+            padding: 8px 22px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 14px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #875A7B;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+        .badge:hover {
+            background-color: #6e4764;
+            transform: translateY(-1px);
+        }
+        .badge.enterprise {
+            background-color: #017e84; /* Verde/teal Odoo Enterprise */
+        }
+        .badge.enterprise:hover {
+            background-color: #016267;
+        }
+
+        /* Figuras con caption */
+        figure {
+            margin: 20px 0;
+            text-align: center;
+        }
+        figure img {
+            display: block;
+            margin: 0 auto;
+        }
+        figcaption {
+            margin-top: 8px;
+            font-size: 14px;
+            color: #666;
+            font-style: italic;
+        }
+
+        /* Botón de contacto */
+        .contact-block {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .contact-btn {
+            display: inline-block;
+            padding: 10px 26px;
+            border-radius: 50px;
+            background-color: #875A7B;
+            color: #fff;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+            transition: background-color 0.2s ease;
+        }
+        .contact-btn:hover {
+            background-color: #6e4764;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Badges de versión y edición -->
+    <div class="badges">
+        <span class="badge">Odoo Community v16</span>
+        <span class="badge enterprise">Odoo Enterprise v16</span>
+    </div>
+
+    <div class="section">
+        <h1>Purchase Return at Original Cost</h1>
+        <p>Reverse a validated purchase receipt using the <strong>original stock valuation cost</strong> at which the products were received, instead of the current Average Cost (AVCO).</p>
+    </div>
+
+    <div class="section">
+        <h2>Why use this module?</h2>
+        <p>In Odoo, when you return a purchase receipt, the stock valuation is created using the <em>current</em> average cost at the time of the return. This can cause discrepancies in inventory valuation and accounting entries, especially when prices have changed since the original receipt.</p>
+        <p>This module solves that problem by using the <strong>historical unit cost</strong> from the original receipt, ensuring accurate inventory valuation.</p>
+    </div>
+
+    <div class="section">
+        <h2>Key Features</h2>
+        <ul class="feature-list">
+            <li>Adds a "Revertir a costo original" button to validated purchase receipts.</li>
+            <li>Uses the original valuation cost (from the Stock Valuation Layer of the receipt) instead of the current AVCO.</li>
+            <li>Reuses the native Odoo return wizard for a familiar user experience.</li>
+            <li>Works seamlessly with Odoo's standard inventory and accounting flows.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Screenshots</h2>
+
+        <figure>
+            <img src="img/screenshot_button.png" alt="Revert button on purchase receipt"/>
+            <figcaption>Button "Revertir Recepción" available on validated purchase receipts.</figcaption>
+        </figure>
+
+        <figure>
+            <img src="img/screenshot_wizard.png" alt="Return wizard with original cost columns"/>
+            <figcaption>Return wizard showing the original cost columns.</figcaption>
+        </figure>
+
+        <figure>
+            <img src="img/screenshot_return.png" alt="Return wizard with original quant columns"/>
+            <figcaption>Return wizard with the received, reverted, and available quantities.</figcaption>
+        </figure>
+
+        <figure>
+            <img src="img/screenshot_slv_in.png" alt="Return SLV with original input"/>
+            <figcaption>Stock Valuation Layer showing the original input cost.</figcaption>
+        </figure>
+
+        <figure>
+            <img src="img/screenshot_slv_out.png" alt="Return SLV with original output"/>
+            <figcaption>Stock Valuation Layer showing the output reversal at the original cost.</figcaption>
+        </figure>
+
+    </div>
+
+    <div class="section">
+        <h2>How to Use</h2>
+        <ol>
+            <li>Go to a validated purchase receipt (Inventory &gt; Operations &gt; Receipts).</li>
+            <li>Click the <strong>"Revertir Recepción"</strong> button.</li>
+            <li>In the wizard, specify the quantities to return and the destination location.</li>
+            <li>Click <strong>"Revertir"</strong> to create and validate the return.</li>
+        </ol>
+        <div class="note">
+            <p><strong>Note:</strong> The wizard will show additional columns (Received, Already Reverted, Available, Original Cost, Original Value) to help you decide the quantities to return.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Technical Details</h2>
+        <ul>
+            <li><strong>Dependencies:</strong> stock, stock_account, purchase_stock</li>
+            <li><strong>License:</strong> LGPL-3</li>
+            <li><strong>Odoo Version:</strong> 16.0</li>
+        </ul>
+    </div>
+
+    <!-- Contacto -->
+    <div class="section contact-block">
+        <h2>Contact</h2>
+        <p>For questions, support, or customizations:</p>
+        <a class="contact-btn" href="mailto:nav.rod.alvarez@gmail.com?subject=Purchase%20Return%20at%20Original%20Cost">
+            ✉ nav.rod.alvarez@gmail.com
+        </a>
+    </div>
+
+</body>
+</html>
