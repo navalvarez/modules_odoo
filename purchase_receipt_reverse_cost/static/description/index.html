@@ -3,176 +3,378 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Purchase Return at Original Cost</title>
-    <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 0 auto; padding: 20px; }
-        h1, h2 { color: #875A7B; }
-        .section { margin-bottom: 30px; }
-        .section img { max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; margin: 10px 0; }
-        .feature-list { list-style: none; padding: 0; }
-        .feature-list li { margin-bottom: 10px; padding-left: 24px; position: relative; }
-        .feature-list li:before { content: "✔"; color: #875A7B; font-weight: bold; position: absolute; left: 0; }
-        .note { background-color: #f9f9f9; border-left: 4px solid #875A7B; padding: 15px; margin: 20px 0; }
-
-        /* Botones de versión / edición */
-        .badges {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin: 10px 0 30px 0;
-        }
-        .badge {
-            display: inline-block;
-            padding: 8px 22px;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 14px;
-            text-decoration: none;
-            color: #fff;
-            background-color: #875A7B;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
-            transition: background-color 0.2s ease, transform 0.1s ease;
-        }
-        .badge:hover {
-            background-color: #6e4764;
-            transform: translateY(-1px);
-        }
-        .badge.enterprise {
-            background-color: #017e84; /* Verde/teal Odoo Enterprise */
-        }
-        .badge.enterprise:hover {
-            background-color: #016267;
-        }
-
-        /* Figuras con caption */
-        figure {
-            margin: 20px 0;
-            text-align: center;
-        }
-        figure img {
-            display: block;
-            margin: 0 auto;
-        }
-        figcaption {
-            margin-top: 8px;
-            font-size: 14px;
-            color: #666;
-            font-style: italic;
-        }
-
-        /* Botón de contacto */
-        .contact-block {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .contact-btn {
-            display: inline-block;
-            padding: 10px 26px;
-            border-radius: 50px;
-            background-color: #875A7B;
-            color: #fff;
-            font-weight: bold;
-            text-decoration: none;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
-            transition: background-color 0.2s ease;
-        }
-        .contact-btn:hover {
-            background-color: #6e4764;
-            color: #fff;
-        }
-    </style>
+    <title>Purchase Return at Original Cost - Odoo Module</title>
 </head>
-<body>
+<body style="font-family: -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; color: #2E353B; background: #ffffff; padding: 0; margin: 0; line-height: 1.6;">
 
-    <!-- Badges de versión y edición -->
-    <div class="badges">
-        <span class="badge">Odoo Community v16</span>
-        <span class="badge enterprise">Odoo Enterprise v16</span>
+<div style="max-width: 980px; margin: 0 auto; padding: 20px 16px;">
+
+    <!-- ================= HERO ================= -->
+    <div style="text-align: center; padding: 10px 0 20px;">
+
+        <div style="font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #949AAB; margin-bottom: 8px;">
+            Odoo Inventory &middot; Accurate Stock Valuation
+        </div>
+        <h1 style="font-size: 28px; font-weight: 800; letter-spacing: -0.5px; margin: 0 0 12px; color: #2E353B;">
+            Reverse Purchase Receipts at the<br/>
+            <span style="color: #017e84;">Original Valuation Cost.</span>
+        </h1>
+        <p style="font-size: 16px; color: #4C5773; max-width: 720px; margin: 0 auto 24px; line-height: 1.6;">
+            <b>Purchase Return at Original Cost</b> lets you reverse a validated purchase
+            receipt using the <b>historical unit cost</b> at which the products were received,
+            instead of the current Average Cost (AVCO). Keep your inventory valuation
+            accurate and avoid discrepancies in your accounting entries.
+        </p>
+
+        <!-- Compatibility -->
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 0 0 12px;">
+            <span style="display: inline-flex; align-items: center; gap: 8px; background: #FFFFFF; border: 1px solid #CFE6E7; border-radius: 999px; padding: 8px 16px; font-size: 13px; font-weight: 700; color: #2E353B;">
+                <span style="display: inline-flex; align-items: center; justify-content: center; width: 19px; height: 19px; border-radius: 999px; background: #E7F5EC; color: #1F8A4C; font-size: 11px;">&#x2713;</span>
+                Odoo Community v16
+            </span>
+            <span style="display: inline-flex; align-items: center; gap: 8px; background: #FFFFFF; border: 1px solid #CFE6E7; border-radius: 999px; padding: 8px 16px; font-size: 13px; font-weight: 700; color: #2E353B;">
+                <span style="display: inline-flex; align-items: center; justify-content: center; width: 19px; height: 19px; border-radius: 999px; background: #E7F5EC; color: #1F8A4C; font-size: 11px;">&#x2713;</span>
+                Odoo Enterprise v16
+            </span>
+        </div>
+        <div style="font-size: 13px; color: #4C5773; margin: 0 0 22px;">
+            Compatible with Odoo.sh and dedicated servers &mdash; Odoo Online does not support custom modules.
+        </div>
     </div>
 
-    <div class="section">
-        <h1>Purchase Return at Original Cost</h1>
-        <p>Reverse a validated purchase receipt using the <strong>original stock valuation cost</strong> at which the products were received, instead of the current Average Cost (AVCO).</p>
+    <!-- ================= WHY USE THIS MODULE ================= -->
+    <div style="background: #F5FAFA; border: 1px solid #EEECEC; border-radius: 12px; padding: 26px; margin: 30px 0;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+            <div>
+                <div style="font-size: 28px; margin-bottom: 10px;">⚠️</div>
+                <h3 style="font-size: 18px; font-weight: 800; margin: 0 0 10px; color: #C0392B;">The Problem</h3>
+                <p style="font-size: 14px; color: #4C5773; line-height: 1.6;">
+                    In Odoo, when you return a purchase receipt, the stock valuation is created
+                    using the <b>current</b> average cost at the time of the return. This causes
+                    discrepancies in inventory valuation and accounting entries, especially when
+                    prices have changed since the original receipt.
+                </p>
+            </div>
+            <div>
+                <div style="font-size: 28px; margin-bottom: 10px;">✅</div>
+                <h3 style="font-size: 18px; font-weight: 800; margin: 0 0 10px; color: #017e84;">The Solution</h3>
+                <p style="font-size: 14px; color: #4C5773; line-height: 1.6;">
+                    This module uses the <b>historical unit cost</b> from the original receipt
+                    (taken from its Stock Valuation Layer), ensuring accurate inventory
+                    valuation and preventing discrepancies in the accounting entries.
+                </p>
+            </div>
+        </div>
     </div>
 
-    <div class="section">
-        <h2>Why use this module?</h2>
-        <p>In Odoo, when you return a purchase receipt, the stock valuation is created using the <em>current</em> average cost at the time of the return. This can cause discrepancies in inventory valuation and accounting entries, especially when prices have changed since the original receipt.</p>
-        <p>This module solves that problem by using the <strong>historical unit cost</strong> from the original receipt, ensuring accurate inventory valuation.</p>
+    <!-- ================= FEATURES GRID ================= -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 34px 0;">
+        <div style="background: #F5FAFA; border: 1px solid #EEECEC; border-radius: 10px; padding: 18px;">
+            <div style="font-size: 22px;">🔁</div>
+            <div style="font-weight: 700; margin: 6px 0 4px;">Reversal at Original Cost</div>
+            <div style="font-size: 13px; color: #4C5773; line-height: 1.5;">
+                The return uses the historical unit cost from the original receipt
+                (from the Stock Valuation Layer), not the current AVCO.
+            </div>
+        </div>
+        <div style="background: #F5FAFA; border: 1px solid #EEECEC; border-radius: 10px; padding: 18px;">
+            <div style="font-size: 22px;">🧭</div>
+            <div style="font-weight: 700; margin: 6px 0 4px;">Native Return Wizard</div>
+            <div style="font-size: 13px; color: #4C5773; line-height: 1.5;">
+                Reuses the standard Odoo return wizard for a familiar user experience,
+                so your team doesn't need to learn a new flow.
+            </div>
+        </div>
+        <div style="background: #F5FAFA; border: 1px solid #EEECEC; border-radius: 10px; padding: 18px;">
+            <div style="font-size: 22px;">📊</div>
+            <div style="font-weight: 700; margin: 6px 0 4px;">Extra Columns in the Wizard</div>
+            <div style="font-size: 13px; color: #4C5773; line-height: 1.5;">
+                The wizard shows <b>Received</b>, <b>Already Reverted</b>,
+                <b>Available</b>, <b>Original Cost</b> and <b>Original Value</b>
+                for each line.
+            </div>
+        </div>
+        <div style="background: #F5FAFA; border: 1px solid #EEECEC; border-radius: 10px; padding: 18px;">
+            <div style="font-size: 22px;">🔗</div>
+            <div style="font-weight: 700; margin: 6px 0 4px;">Native Accounting Flow</div>
+            <div style="font-size: 13px; color: #4C5773; line-height: 1.5;">
+                Works seamlessly with Odoo's standard inventory and accounting flows,
+                so your valuation and journal entries stay consistent.
+            </div>
+        </div>
     </div>
 
-    <div class="section">
-        <h2>Key Features</h2>
-        <ul class="feature-list">
-            <li>Adds a "Revertir a costo original" button to validated purchase receipts.</li>
+    <!-- ================= KEY FEATURES HIGHLIGHT ================= -->
+    <div style="background: #E8F5E9; border-left: 4px solid #017e84; padding: 16px 20px; border-radius: 8px; margin: 16px 0;">
+        <strong style="color: #017e84;">🔑 Key Features:</strong>
+        <ul style="margin: 8px 0 0 18px; font-size: 14px; color: #2E353B; line-height: 1.8;">
+            <li>Adds a <strong>"Revertir a costo original"</strong> button to validated purchase receipts.</li>
             <li>Uses the original valuation cost (from the Stock Valuation Layer of the receipt) instead of the current AVCO.</li>
             <li>Reuses the native Odoo return wizard for a familiar user experience.</li>
             <li>Works seamlessly with Odoo's standard inventory and accounting flows.</li>
         </ul>
     </div>
 
-    <div class="section">
-        <h2>Screenshots</h2>
+    <!-- ================= SCREENSHOTS ================= -->
+    <div style="margin: 40px 0 20px;">
+        <h2 style="font-size: 20px; font-weight: 700; margin: 0 0 16px; text-align: center;">Screenshots</h2>
 
-        <figure>
-            <img src="img/screenshot_button.png" alt="Revert button on purchase receipt"/>
-            <figcaption>Button "Revertir Recepción" available on validated purchase receipts.</figcaption>
-        </figure>
+        <div style="margin-bottom: 30px; background: #f8f9fa; padding: 10px; border-radius: 8px;">
+            <img src="img/screenshot_button.png" alt="Revert button on purchase receipt" style="width: 100%; height: auto; max-width: 980px; display: block; margin: 0 auto; border-radius: 6px; border: 1px solid #ddd;">
+            <p style="font-size: 14px; color: #555; text-align: center; margin-top: 8px; font-weight: 600;">Button "Revertir Recepción" available on validated purchase receipts.</p>
+        </div>
 
-        <figure>
-            <img src="img/screenshot_wizard.png" alt="Return wizard with original cost columns"/>
-            <figcaption>Return wizard showing the original cost columns.</figcaption>
-        </figure>
+        <div style="margin-bottom: 30px; background: #f8f9fa; padding: 10px; border-radius: 8px;">
+            <img src="img/screenshot_wizard.png" alt="Return wizard with original cost columns" style="width: 100%; height: auto; max-width: 980px; display: block; margin: 0 auto; border-radius: 6px; border: 1px solid #ddd;">
+            <p style="font-size: 14px; color: #555; text-align: center; margin-top: 8px; font-weight: 600;">Return wizard showing the original cost columns.</p>
+        </div>
 
-        <figure>
-            <img src="img/screenshot_return.png" alt="Return wizard with original quant columns"/>
-            <figcaption>Return wizard with the received, reverted, and available quantities.</figcaption>
-        </figure>
+        <div style="margin-bottom: 30px; background: #f8f9fa; padding: 10px; border-radius: 8px;">
+            <img src="img/screenshot_return.png" alt="Return wizard with original quant columns" style="width: 100%; height: auto; max-width: 980px; display: block; margin: 0 auto; border-radius: 6px; border: 1px solid #ddd;">
+            <p style="font-size: 14px; color: #555; text-align: center; margin-top: 8px; font-weight: 600;">Return wizard with the received, reverted, and available quantities.</p>
+        </div>
 
-        <figure>
-            <img src="img/screenshot_slv_in.png" alt="Return SLV with original input"/>
-            <figcaption>Stock Valuation Layer showing the original input cost.</figcaption>
-        </figure>
+        <div style="margin-bottom: 30px; background: #f8f9fa; padding: 10px; border-radius: 8px;">
+            <img src="img/screenshot_slv_in.png" alt="Return SLV with original input" style="width: 100%; height: auto; max-width: 980px; display: block; margin: 0 auto; border-radius: 6px; border: 1px solid #ddd;">
+            <p style="font-size: 14px; color: #555; text-align: center; margin-top: 8px; font-weight: 600;">Stock Valuation Layer showing the original input cost.</p>
+        </div>
 
-        <figure>
-            <img src="img/screenshot_slv_out.png" alt="Return SLV with original output"/>
-            <figcaption>Stock Valuation Layer showing the output reversal at the original cost.</figcaption>
-        </figure>
+        <div style="margin-bottom: 30px; background: #f8f9fa; padding: 10px; border-radius: 8px;">
+            <img src="img/screenshot_slv_out.png" alt="Return SLV with original output" style="width: 100%; height: auto; max-width: 980px; display: block; margin: 0 auto; border-radius: 6px; border: 1px solid #ddd;">
+            <p style="font-size: 14px; color: #555; text-align: center; margin-top: 8px; font-weight: 600;">Stock Valuation Layer showing the output reversal at the original cost.</p>
+        </div>
 
-    </div>
-
-    <div class="section">
-        <h2>How to Use</h2>
-        <ol>
-            <li>Go to a validated purchase receipt (Inventory &gt; Operations &gt; Receipts).</li>
-            <li>Click the <strong>"Revertir Recepción"</strong> button.</li>
-            <li>In the wizard, specify the quantities to return and the destination location.</li>
-            <li>Click <strong>"Revertir"</strong> to create and validate the return.</li>
-        </ol>
-        <div class="note">
-            <p><strong>Note:</strong> The wizard will show additional columns (Received, Already Reverted, Available, Original Cost, Original Value) to help you decide the quantities to return.</p>
+        <div style="margin-bottom: 30px; background: #f8f9fa; padding: 10px; border-radius: 8px;">
+            <img src="img/screenshot_avco.png" alt="Cost Method AVCO" style="width: 100%; height: auto; max-width: 980px; display: block; margin: 0 auto; border-radius: 6px; border: 1px solid #ddd;">
+            <p style="font-size: 14px; color: #555; text-align: center; margin-top: 8px; font-weight: 600;">Stock Valuation AVCO the output reversal at the original cost.</p>
         </div>
     </div>
 
-    <div class="section">
-        <h2>Technical Details</h2>
-        <ul>
-            <li><strong>Dependencies:</strong> stock, stock_account, purchase_stock</li>
-            <li><strong>License:</strong> LGPL-3</li>
-            <li><strong>Odoo Version:</strong> 16.0</li>
+    <!-- ================= HOW IT WORKS ================= -->
+    <div style="margin: 40px 0;">
+        <h2 style="font-size: 20px; font-weight: 700; margin: 0 0 16px;">How It Works in 4 Simple Steps</h2>
+
+        <div style="display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px;">
+            <div style="flex: 0 0 34px; height: 34px; border-radius: 999px; background: #017e84; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px;">1</div>
+            <div>
+                <div style="font-weight: 700; margin-bottom: 3px;">Open a Validated Purchase Receipt</div>
+                <div style="font-size: 13.5px; color: #4C5773; line-height: 1.6;">
+                    Go to <b>Inventory &gt; Operations &gt; Receipts</b> and open a receipt that
+                    has already been validated (<b>state = Done</b>).
+                </div>
+            </div>
+        </div>
+
+        <div style="display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px;">
+            <div style="flex: 0 0 34px; height: 34px; border-radius: 999px; background: #017e84; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px;">2</div>
+            <div>
+                <div style="font-weight: 700; margin-bottom: 3px;">Click "Revertir Recepción"</div>
+                <div style="font-size: 13.5px; color: #4C5773; line-height: 1.6;">
+                    The module adds the button to the header of the receipt, next to the
+                    standard <b>"Devolver"</b> action. Both coexist peacefully.
+                </div>
+            </div>
+        </div>
+
+        <div style="display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px;">
+            <div style="flex: 0 0 34px; height: 34px; border-radius: 999px; background: #017e84; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px;">3</div>
+            <div>
+                <div style="font-weight: 700; margin-bottom: 3px;">Specify Quantities and Destination Location</div>
+                <div style="font-size: 13.5px; color: #4C5773; line-height: 1.6;">
+                    In the wizard, set the quantities to return and the destination location.
+                    The wizard shows extra columns (Received, Already Reverted, Available,
+                    Original Cost, Original Value) to help you decide.
+                </div>
+            </div>
+        </div>
+
+        <div style="display: flex; align-items: flex-start; gap: 16px;">
+            <div style="flex: 0 0 34px; height: 34px; border-radius: 999px; background: #017e84; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px;">4</div>
+            <div>
+                <div style="font-weight: 700; margin-bottom: 3px;">Click "Revertir" and Validate</div>
+                <div style="font-size: 13.5px; color: #4C5773; line-height: 1.6;">
+                    The return is created, reserved, and validated automatically. The Stock
+                    Valuation Layer is created at the <b>original unit cost</b> from the receipt,
+                    not at the current AVCO.
+                </div>
+            </div>
+        </div>
+
+        <div style="background: #FFF8E1; border-left: 4px solid #F2A900; padding: 12px 18px; border-radius: 8px; margin-top: 20px; font-size: 13.5px; color: #4C5773; line-height: 1.6;">
+            <b>Note:</b> The wizard will show additional columns (Received, Already Reverted,
+            Available, Original Cost, Original Value) to help you decide the quantities to return.
+        </div>
+    </div>
+
+    <!-- ================= WHAT YOU'LL BE ABLE TO DO ================= -->
+    <div style="margin: 40px 0;">
+        <h2 style="font-size: 20px; font-weight: 700; margin: 0 0 16px;">What You'll Be Able to Do</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+            <div style="background: #FFFFFF; border: 1px solid #EEECEC; border-radius: 10px; padding: 18px;">
+                <div style="font-weight: 700; font-size: 16px; color: #017e84; margin-bottom: 4px;">💵 Keep Valuation Accurate</div>
+                <div style="font-size: 13.5px; color: #4C5773; line-height: 1.5;">
+                    Maintain accurate inventory valuation in AVCO configurations, even when
+                    prices have changed since the original receipt.
+                </div>
+            </div>
+            <div style="background: #FFFFFF; border: 1px solid #EEECEC; border-radius: 10px; padding: 18px;">
+                <div style="font-weight: 700; font-size: 16px; color: #017e84; margin-bottom: 4px;">📒 Avoid Journal Discrepancies</div>
+                <div style="font-size: 13.5px; color: #4C5773; line-height: 1.5;">
+                    Prevent mismatches between stock valuation and accounting entries when
+                    returning goods received at a different cost.
+                </div>
+            </div>
+            <div style="background: #FFFFFF; border: 1px solid #EEECEC; border-radius: 10px; padding: 18px;">
+                <div style="font-weight: 700; font-size: 16px; color: #017e84; margin-bottom: 4px;">🧾 Full Traceability</div>
+                <div style="font-size: 13.5px; color: #4C5773; line-height: 1.5;">
+                    See exactly which quantities were received, already reverted, and available
+                    on every purchase receipt.
+                </div>
+            </div>
+            <div style="background: #FFFFFF; border: 1px solid #EEECEC; border-radius: 10px; padding: 18px;">
+                <div style="font-weight: 700; font-size: 16px; color: #017e84; margin-bottom: 4px;">🧩 Native Experience</div>
+                <div style="font-size: 13.5px; color: #4C5773; line-height: 1.5;">
+                    Reuse the Odoo return wizard and standard flows. No new menus, no new
+                    concepts to learn for your team.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= WHAT'S INCLUDED ================= -->
+    <div style="background: #F5FAFA; border: 1px solid #EEECEC; border-radius: 12px; padding: 22px 26px; margin: 34px 0;">
+        <div style="font-weight: 800; font-size: 16px; margin-bottom: 10px;">What's Included</div>
+        <ul style="columns: 2; column-gap: 40px; font-size: 13.5px; color: #4C5773; line-height: 2.2; margin: 0; padding-left: 18px;">
+            <li>✅ "Revertir a costo original" button on receipts</li>
+            <li>✅ Reversal at the original receipt cost</li>
+            <li>✅ Uses the Stock Valuation Layer from the receipt</li>
+            <li>✅ Native return wizard reused</li>
+            <li>✅ Extra columns: Received / Reverted / Available</li>
+            <li>✅ Original Cost and Original Value columns</li>
+            <li>✅ Automatic quantity validation</li>
+            <li>✅ Automatic reservation of the return</li>
+            <li>✅ Automatic validation of the return</li>
+            <li>✅ Compatible with AVCO valuation</li>
+            <li>✅ Standard inventory and accounting flows</li>
+            <li>✅ No external dependencies</li>
+            <li>✅ Optimized, documented code</li>
+            <li>✅ Full support included</li>
         </ul>
     </div>
 
-    <!-- Contacto -->
-    <div class="section contact-block">
-        <h2>Contact</h2>
-        <p>For questions, support, or customizations:</p>
-        <a class="contact-btn" href="mailto:nav.rod.alvarez@gmail.com?subject=Purchase%20Return%20at%20Original%20Cost">
-            ✉ nav.rod.alvarez@gmail.com
+    <!-- ================= TECHNICAL DETAILS ================= -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 34px 0;">
+        <div style="background: #FFFFFF; border: 1px solid #EEECEC; border-radius: 10px; padding: 16px;">
+            <div style="font-weight: 700; margin-bottom: 4px;">📦 Dependencies</div>
+            <div style="font-size: 13px; color: #4C5773; line-height: 1.5;">
+                <code>stock</code>, <code>stock_account</code>, <code>purchase_stock</code>
+            </div>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #EEECEC; border-radius: 10px; padding: 16px;">
+            <div style="font-weight: 700; margin-bottom: 4px;">⚖️ License</div>
+            <div style="font-size: 13px; color: #4C5773; line-height: 1.5;">
+                LGPL-3
+            </div>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #EEECEC; border-radius: 10px; padding: 16px;">
+            <div style="font-weight: 700; margin-bottom: 4px;">🅾️ Odoo Version</div>
+            <div style="font-size: 13px; color: #4C5773; line-height: 1.5;">
+                16.0
+            </div>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #EEECEC; border-radius: 10px; padding: 16px;">
+            <div style="font-weight: 700; margin-bottom: 4px;">🧠 Valuation Method</div>
+            <div style="font-size: 13px; color: #4C5773; line-height: 1.5;">
+                Designed for Average Cost (AVCO)
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= FAQ ================= -->
+    <div style="margin: 40px 0;">
+        <h2 style="font-size: 20px; font-weight: 700; margin: 0 0 16px;">Frequently Asked Questions</h2>
+
+        <div style="border: 1px solid #EEECEC; border-radius: 10px; padding: 16px 20px; margin-bottom: 10px; background: #FFFFFF;">
+            <div style="font-weight: 700; margin-bottom: 4px;">How is the original cost calculated?</div>
+            <div style="font-size: 13.5px; color: #4C5773; line-height: 1.6;">
+                The module reads the <b>Stock Valuation Layer</b> of the original receipt move
+                and computes the unit cost as <code>value / quantity</code>. That unit cost is
+                stored on the return move and used when creating the outgoing SVL.
+            </div>
+        </div>
+
+        <div style="border: 1px solid #EEECEC; border-radius: 10px; padding: 16px 20px; margin-bottom: 10px; background: #FFFFFF;">
+            <div style="font-weight: 700; margin-bottom: 4px;">Does it work with FIFO or Standard cost?</div>
+            <div style="font-size: 13.5px; color: #4C5773; line-height: 1.6;">
+                The module is primarily designed for <b>Average Cost (AVCO)</b>. For FIFO it
+                will also produce a consistent reversal using the original receipt cost, but
+                it does not try to reverse layer-by-layer.
+            </div>
+        </div>
+
+        <div style="border: 1px solid #EEECEC; border-radius: 10px; padding: 16px 20px; margin-bottom: 10px; background: #FFFFFF;">
+            <div style="font-weight: 700; margin-bottom: 4px;">Can I revert only part of the receipt?</div>
+            <div style="font-size: 13.5px; color: #4C5773; line-height: 1.6;">
+                Yes. The wizard shows the received, already reverted, and available quantities
+                per line, and it validates that the requested quantity does not exceed what is
+                still available.
+            </div>
+        </div>
+
+        <div style="border: 1px solid #EEECEC; border-radius: 10px; padding: 16px 20px; margin-bottom: 10px; background: #FFFFFF;">
+            <div style="font-weight: 700; margin-bottom: 4px;">Does it affect the standard "Return" button?</div>
+            <div style="font-size: 13.5px; color: #4C5773; line-height: 1.6;">
+                No. The native <b>"Devolver"</b> button keeps its own standard wizard and
+                standard valuation. Our module adds a <b>separate</b> button with its own
+                wizard and its own valuation logic.
+            </div>
+        </div>
+
+        <div style="border: 1px solid #EEECEC; border-radius: 10px; padding: 16px 20px; margin-bottom: 10px; background: #FFFFFF;">
+            <div style="font-weight: 700; margin-bottom: 4px;">Do I need technical skills to install it?</div>
+            <div style="font-size: 13.5px; color: #4C5773; line-height: 1.6;">
+                No. Installation is the same as any other Odoo module. Once installed, the
+                flow is the standard Odoo return experience with an extra button on the
+                receipt.
+            </div>
+        </div>
+
+        <div style="border: 1px solid #EEECEC; border-radius: 10px; padding: 16px 20px; margin-bottom: 10px; background: #FFFFFF;">
+            <div style="font-weight: 700; margin-bottom: 4px;">Is support included?</div>
+            <div style="font-size: 13.5px; color: #4C5773; line-height: 1.6;">
+                Yes. We provide <b>technical support</b> to help you with installation,
+                configuration, and any questions you may have. Contact us at
+                <a href="mailto:nav.rod.alvarez@gmail.com" style="color: #017e84; text-decoration: none;">nav.rod.alvarez@gmail.com</a>.
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= CTA ================= -->
+    <div style="border: 2px solid #017e84; border-radius: 12px; background: #F0F8F8; padding: 24px 20px; margin: 34px 0 10px; text-align: center;">
+        <div style="font-size: 26px; line-height: 1;">📧</div>
+        <div style="font-size: 18px; font-weight: 800; color: #2E353B; margin: 10px 0 6px;">Need Help or a Demo?</div>
+        <p style="font-size: 14px; color: #4C5773; line-height: 1.6; margin: 0 auto; max-width: 520px;">
+            Contact us for questions, support, or customizations. We can also offer a
+            <b>personalized demo</b> tailored to your specific needs.
+        </p>
+        <a href="mailto:nav.rod.alvarez@gmail.com?subject=Purchase%20Return%20at%20Original%20Cost" style="display: inline-block; background: #017e84; color: #FFFFFF; font-weight: 700; padding: 12px 32px; border-radius: 8px; text-decoration: none; font-size: 15px; margin-top: 12px;">
+            ✉ Contact Us →
         </a>
     </div>
+
+    <!-- ================= FOOTER ================= -->
+    <div style="text-align: center; padding: 18px 0 8px; border-top: 1px solid #EEECEC; margin-top: 34px;">
+        <p style="font-size: 14px; color: #4C5773; margin: 0 0 6px; font-weight: 600;">
+            Purchase Return at Original Cost &mdash; Accurate Stock Valuation in Odoo
+        </p>
+        <p style="font-size: 13px; color: #949AAB; margin: 0;">
+            Odoo 16 &middot; Compatible with Community &amp; Enterprise &middot; Support Included
+            <br/>
+            <a href="mailto:nav.rod.alvarez@gmail.com" style="color: #017e84; text-decoration: none;">nav.rod.alvarez@gmail.com</a>
+        </p>
+    </div>
+
+</div>
 
 </body>
 </html>
